@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.0.9 #For SVG 
   slide_to_act: ^2.0.2 # For Welcome Page slide button
+  get: ^4.6.6 # For State Management And Page routing 
 
 dev_dependencies:
   flutter_test:

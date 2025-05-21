@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:messenger_app/config/PagePath.dart';
 import 'package:messenger_app/config/themes.dart';
-// ignore: unused_import
-import 'package:messenger_app/pages/SplacePage/SplacePage.dart';
 import 'package:messenger_app/pages/Welcome/WelcomePage.dart';
 
 void main() {
@@ -11,19 +11,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // builder: FToastBuilder(),
-      title: 'shazchat',
+    return GetMaterialApp(
+      title: 'Shazchat',
       theme: lightTheme,
-      // getPages: pagePath,
       darkTheme: darkTheme,
       themeMode: ThemeMode.dark,
+      getPages: pagePath, // ✅ fixed route list
       home: const Welcomepage(),
-      // home: DemoPage2(),
     );
   }
 }
-

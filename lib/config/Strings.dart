@@ -1,10 +1,10 @@
 // ignore: file_names
 class AppString {
-  static const appName = "SAMPARK";
+  static const appName = "SHAZCHAT";
 }
 
 class WelcomePageString {
-  static const appName = "SAMPARK";
+  static const appName = "SHAZCHAT";
   static const nowYourAre = "Now You Are";
   static const connected = "Connected";
   static const discription = "Perfect solution of connexct with anyone easly and more secure";
