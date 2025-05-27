@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:messenger_app/Widget/PrimaryButton.dart';
 
 class Signupform extends StatelessWidget {
@@ -8,52 +10,40 @@ class Signupform extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 40,
-        ),
+        SizedBox(height: 40),
         TextField(
           decoration: InputDecoration(
             hintText: "Full Name",
-            prefixIcon: Icon(Icons.alternate_email_rounded
-            ),
+            prefixIcon: Icon(Icons.alternate_email_rounded),
           ),
         ),
-        SizedBox(
-          height: 40,
-        ),
+        SizedBox(height: 40),
         TextField(
           decoration: InputDecoration(
             hintText: "Email",
-            prefixIcon: Icon(Icons.alternate_email_rounded
-            ),
+            prefixIcon: Icon(Icons.alternate_email_rounded),
           ),
         ),
-        SizedBox(
-          height: 40,
-        ),
+        SizedBox(height: 40),
         TextField(
           decoration: InputDecoration(
             hintText: "Password",
-            prefixIcon: Icon(Icons.password_outlined
-            ),
+            prefixIcon: Icon(Icons.password_outlined),
           ),
         ),
-        SizedBox(
-          height: 20,
-        ),
+        SizedBox(height: 20),
         Column(
-          mainAxisAlignment: MainAxisAlignment.center, 
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PrimaryButton(
               btnName: "signup",
               icon: Icons.lock_open_outlined,
               ontap: () {
-                
+                Get.offAllNamed("/Homepage");
               },
             ),
           ],
-        )
-
+        ),
       ],
     );
   }

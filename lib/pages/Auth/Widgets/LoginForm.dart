@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:messenger_app/Widget/PrimaryButton.dart';
 
 class Loginform extends StatelessWidget {
@@ -38,7 +40,7 @@ class Loginform extends StatelessWidget {
               btnName: "Login",
               icon: Icons.lock_open_outlined,
               ontap: () {
-                
+                Get.offAllNamed("/Homepage");
               },
             ),
           ],
