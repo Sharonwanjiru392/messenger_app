@@ -15,4 +15,15 @@ class AssetsImage{
   static const connetSVG = "$iconsPath/connect.svg";
   static const plugSVG = "$iconsPath/plug.svg";
 
+  static const chatStatusSvg = "$iconsPath/chatStatus.svg";
+  static const chatSendSvg = "$iconsPath/send.svg";
+  static const chatGallarySvg = "$iconsPath/gallary.svg";
+  static const chatMicSvg = "$iconsPath/mic.svg";
+  static const chatEmoji = "$iconsPath/emoji.svg";
+
+  static const profileVideoCall = "$iconsPath/videoCall.svg";
+  static const profileAudioCall = "$iconsPath/call.svg";
+
+  static const groupAddUser = "$iconsPath/addUser.svg";
+
 }
