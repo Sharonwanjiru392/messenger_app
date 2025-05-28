@@ -1,48 +1,77 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
+import 'package:messenger_app/Controller/AuthController.dart';
 import 'package:messenger_app/Widget/PrimaryButton.dart';
 
 class Signupform extends StatelessWidget {
-  const Signupform({super.key});
+  Signupform({super.key});
+
+  final AuthController authController = Get.put(AuthController());
+  final TextEditingController name = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
+
+  final RxBool _obscurePassword = true.obs;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 40),
+        const SizedBox(height: 40),
         TextField(
-          decoration: InputDecoration(
+          controller: name,
+          decoration: const InputDecoration(
             hintText: "Full Name",
-            prefixIcon: Icon(Icons.alternate_email_rounded),
+            prefixIcon: Icon(Icons.person),
           ),
         ),
-        SizedBox(height: 40),
+        const SizedBox(height: 30),
         TextField(
-          decoration: InputDecoration(
+          controller: email,
+          decoration: const InputDecoration(
             hintText: "Email",
             prefixIcon: Icon(Icons.alternate_email_rounded),
           ),
         ),
-        SizedBox(height: 40),
-        TextField(
-          decoration: InputDecoration(
-            hintText: "Password",
-            prefixIcon: Icon(Icons.password_outlined),
-          ),
-        ),
-        SizedBox(height: 20),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PrimaryButton(
-              btnName: "signup",
-              icon: Icons.lock_open_outlined,
-              ontap: () {
-                Get.offAllNamed("/Homepage");
-              },
-            ),
-          ],
+        const SizedBox(height: 30),
+        Obx(() => TextField(
+              controller: password,
+              obscureText: _obscurePassword.value,
+              decoration: InputDecoration(
+                hintText: "Password",
+                prefixIcon: const Icon(Icons.password_outlined),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _obscurePassword.value
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                  ),
+                  onPressed: () {
+                    _obscurePassword.value = !_obscurePassword.value;
+                  },
+                ),
+              ),
+            )),
+        const SizedBox(height: 60),
+        Obx(
+          () => authController.isLoading.value
+              ? const CircularProgressIndicator()
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    PrimaryButton(
+                      ontap: () {
+                        authController.createUser(
+                          email.text.trim(),
+                          password.text.trim(),
+                          name.text.trim(),
+                        );
+                      },
+                      btnName: "SIGNUP",
+                      icon: Icons.lock_open_outlined,
+                    ),
+                  ],
+                ),
         ),
       ],
     );
